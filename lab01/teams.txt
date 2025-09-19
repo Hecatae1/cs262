@@ -1,0 +1,49 @@
+Aisha Abdullahi
+
+Exercise 1.2
+
+
+Demographics
+
+    What is your class level?  senior
+
+    What is your major?  CS+
+
+    What letter grades did you get in CS 112 and 212? For both, B
+
+    What CS 262 section are you in (A or B)?A 
+     Can you attend the full Friday lab session, and, therefore, be on a team with members of the other class section? Yes
+
+Technical
+
+    Have you worked on any of the following things:
+
+    JavaScript/Typescript applications
+    SQL database systems
+    If so, what (briefly) have you done? For JavaScript, It was part of a simple HTML, CSS portfolio. I don't fully understand how the JS part works and if I were asked to make it again I can but not the JS part. I would need help remembering.
+     For Typescript, I was/am trying to build an uber clone but I ran into some errors and took a break.
+
+Have you used any of the following tools:
+
+Slack -NO
+Trello -NO
+Git and/or GitHub -YES
+If so, what have you used an how (briefly) have you used it? I use git commands on git bash and vscode to help clone repositories and pull or push requests. I used github to deploy my portfoio as well as a slightly weak personal project
+
+What project or projects would you like to work on. Include at least one tractable project, say from the previous lab exercise or from the suggested projects in the team project specification. - I would like to make the Uber clone I was working on, or the movie recommendation app or Nicholas Roberts West Michigan nutrition app (it is basically a food delivery app)
+If you’d like, talk to other students or use the Moodle forum to form groups interested in particular project ideas.
+
+Personality
+
+What is your big-five personality type? Please include these scores in your lab solution and, if you haven’t already done so, enter them using this form as well: CS 262 - Personality Traits. (See the reading guide for how to determine this. Please, give the five trait values only.)
+
+Openness 96
+Conscientiousness 71
+Extraversion 50
+Agreeableness 48
+Neuroticism 25
+
+
+Is there anyone you’d really like (or not like!) to work with? none
+
+Is there anything else you’d like us to know about you before assigning you to a project team? I am willing to do the boring easy task regardless of how long it takes

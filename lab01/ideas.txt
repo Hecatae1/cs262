@@ -1,0 +1,9 @@
+Aisha Abdullahi
+
+Exercise 1.1
+An application that I think is both interesting and tractable: 
+    a movie recomendation app. MOvies are suggested based on any region of choice, favorite genre and previously liked/watched videos. 
+    SIimilar to how youtube recommnds videos to watch and how tiktok displays shorts you might like.
+
+A wacky application that would really be sweet, but is probably impossible to build: an app or quantum software that predicts lottery numbers
+
