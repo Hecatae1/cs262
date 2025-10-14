@@ -1,46 +1,25 @@
-import { Tabs } from "expo-router";
-import Ionicons from "@expo/vector-icons/Ionicons";
+// app/(tabs)/_layout.tsx
+import { Tabs } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function TabLayout() {
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: "#ffd33d",
-        headerStyle: {
-          backgroundColor: "#25292e",
-        },
-        headerShadowVisible: false,
-        headerTintColor: "#fff",
-        tabBarStyle: {
-          backgroundColor: "#25292e",
-        },
-      }}
-    >
+    <Tabs>
       <Tabs.Screen
-        name="List"
+        name="items"
         options={{
-          title: "Available Items",
-          tabBarIcon: ({ color, focused }) => (
-            <Ionicons
-              name={focused ? "list-sharp" : "list-outline"}
-              color={color}
-              size={24}
-            />
+          title: 'Items',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="list" color={color} size={size} />
           ),
         }}
       />
       <Tabs.Screen
         name="about"
         options={{
-          title: "About",
-          tabBarIcon: ({ color, focused }) => (
-            <Ionicons
-              name={
-                focused ? "information-circle" : "information-circle-outline"
-              }
-              color={color}
-              size={24}
-            />
+          title: 'About',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="information-circle" color={color} size={size} />
           ),
         }}
       />

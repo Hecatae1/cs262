@@ -89,7 +89,7 @@ export const ItemProvider: React.FC<{ children: ReactNode }> = ({
 export const useItemContext = () => {
     const context = useContext(ItemContext);
     if (!context) {
-        throw new Error("useItemContext must be used within an ItemProvider");
+        throw new Error("useItemContext must be used within an ItemProvider in app/_layout.tsx");
     }
     return context;
 };

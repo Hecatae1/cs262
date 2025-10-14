@@ -1,15 +1,22 @@
+/**
+ * RootLayout - Main app layout component using Expo Router
+ *
+ * This module defines the root navigation structure using Expo Router's
+ * Stack navigator.
+ *
+ * Navigation Structure:
+ * - index: List of all items
+ * - details: Individual item details with delete functionality
+ */
 // app/_layout.tsx
-import React from 'react';
 import { Stack } from 'expo-router';
-import { ItemProvider } from '../context/ItemContext'; // adjust path if needed
+import { ItemProvider } from '../context/ItemContext';
 
 export default function RootLayout() {
   return (
     <ItemProvider>
       <Stack>
-        {/* Render the (tabs) layout as the main screen */}
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        {/* Details screen sits above tabs */}
         <Stack.Screen name="details" options={{ title: 'Details' }} />
       </Stack>
     </ItemProvider>

@@ -1,53 +1,37 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useState, ReactNode } from "react";
 
-export type Item = {
+type Item = {
   id: string;
   title: string;
-  description?: string;
-  category?: string;
-  price?: number;
+  category: string;
+  price: number;
+  description: string;
 };
 
-type ContextType = {
+type ItemContextType = {
   items: Item[];
-  remove: (id: string) => void;
-  reload: () => Promise<void>;
+  setItems: React.Dispatch<React.SetStateAction<Item[]>>;
+  deleteItem: (id: string) => void;
 };
 
-const ItemContext = createContext<ContextType | undefined>(undefined);
+const ItemContext = createContext<ItemContextType | undefined>(undefined);
 
-export function ItemProvider({ children }: { children: React.ReactNode }) {
+export const ItemProvider = ({ children }: { children: ReactNode }) => {
   const [items, setItems] = useState<Item[]>([]);
 
-  const load = async () => {
-    try {
-      const url = 'https://raw.githubusercontent.com/Hecatae1/cs262/main/lab06/fetch-app/app/data/items.json';
-      const res = await fetch(url);
-      const json = await res.json();
-      if (Array.isArray(json)) setItems(json as Item[]);
-      else if (Array.isArray(json.items)) setItems(json.items as Item[]);
-      else if (Array.isArray(json.data)) setItems(json.data as Item[]);
-      else setItems([]);
-    } catch (e) {
-      console.warn('Failed to fetch items, falling back to empty list', e);
-      setItems([]);
-    }
-  };
-
-  useEffect(() => {
-    load();
+  const deleteItem = React.useCallback((id: string) => {
+    setItems((prev) => prev.filter((item) => item.id !== id));
   }, []);
 
-  const remove = (id: string) => setItems((s) => s.filter((i) => i.id !== id));
-  const reload = async () => await load();
-
   return (
-    <ItemContext.Provider value={{ items, remove, reload }}>{children}</ItemContext.Provider>
+    <ItemContext.Provider value={{ items, setItems, deleteItem }}>
+      {children}
+    </ItemContext.Provider>
   );
-}
+};
 
-export function useItems() {
-  const ctx = useContext(ItemContext);
-  if (!ctx) throw new Error('useItems must be used inside ItemProvider');
-  return ctx;
-}
+export const useItemContext = () => {
+  const context = useContext(ItemContext);
+  if (!context) throw new Error("useItemContext must be used within ItemProvider");
+  return context;
+};
