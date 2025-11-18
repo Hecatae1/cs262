@@ -25,7 +25,7 @@ WHERE score > 2000;
 -- Case-insensitive match for 'gmail' in emailAddress.
 SELECT *
 FROM Player
-WHERE emailAddress ILIKE '%gmail%';
+WHERE emailAddress LIKE '%gmail%';
 
 
 
