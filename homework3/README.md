@@ -1,5 +1,6 @@
 hi
 link :<https://github.com/Hecatae1/monopoly-service>
+azure: <https://monopoly-service-fwb0djd9etgre8cr.mexicocentral-01.azurewebsites.net/games>
 Web service
 In the lab, you forked your service repo rather than simply cloning it. Was this appropriate? Why or why not?
 
