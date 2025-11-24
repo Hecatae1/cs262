@@ -6,19 +6,16 @@
  */
 
 export interface Player {
-     id: number;
+  id: number;
   starttime: string;
-  endtime: string | null;
+  endtime: string | null;   // or | undefined if needed
   status: string;
-
 }
 
 export const defaultItem: Player = {
-    starttime: "",
-    endtime: null,
-    status: "",
-    id: 0,
-
+  id: 0,
+  starttime: "",
+  endtime: null,            // clean default
+  status: "",
 };
-
 

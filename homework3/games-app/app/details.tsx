@@ -14,7 +14,7 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert, Platform } from "react-native";
 import { useRouter, useLocalSearchParams } from "expo-router";
-import { Item, defaultItem } from "../types/Item";
+import { Player, defaultItem } from "../types/Item";
 import { useItemContext } from "../context/ItemContext";
 import { commonStyles } from "../styles/common";
 
@@ -34,13 +34,13 @@ export default function Details({ onDelete }: { onDelete: (id: string) => void }
     // 1. If `id` param exists, find it in the context list.
     // 2. Otherwise, if `itemString` is present (legacy), parse it.
     // 3. Fall back to defaultItem when nothing matches.
-    let selectedItem: Item = defaultItem;
+    let selectedItem: Player = defaultItem;
     if (paramId) {
-        selectedItem = items.find((item) => item.id === paramId) || defaultItem;
+        selectedItem = items.find((item) => item.id === Number(paramId)) || defaultItem;
     } else if (itemString) {
         try {
             const parsed = JSON.parse(itemString);
-            if (parsed && parsed.id) selectedItem = parsed as Item;
+            if (parsed && parsed.id) selectedItem = parsed as Player;
         } catch (e) {
             // ignore parse errors and keep defaultItem
         }
@@ -52,7 +52,7 @@ export default function Details({ onDelete }: { onDelete: (id: string) => void }
 
         Alert.alert(
             "Delete Item",
-            `Are you sure you want to delete "${selectedItem.title}"?`,
+            `Are you sure you want to delete "${selectedItem.id}"?`,
             [
                 {
                     text: "Cancel",
@@ -71,7 +71,7 @@ export default function Details({ onDelete }: { onDelete: (id: string) => void }
         );
     };
 if (Platform.OS === "web") {
-    const confirmed = typeof window !== "undefined" && window.confirm(`Are you sure you want to delete "${selectedItem.title}"?`);
+    const confirmed = typeof window !== "undefined" && window.confirm(`Are you sure you want to delete "${selectedItem.id}"?`);
     if (confirmed) {
         if (selectedItem.id) deleteItem(selectedItem.id);
         router.back();
@@ -82,21 +82,23 @@ if (Platform.OS === "web") {
         <ScrollView style={commonStyles.container}>
             <View style={styles.contentPadding}>
                 <View style={styles.header}>
-                    <Text style={styles.titleText}>{selectedItem.title}</Text>
-                    <Text style={styles.category}>{selectedItem.category}</Text>
+                    <Text style={styles.smallText}>ID</Text>
+                    <Text style={styles.titleText}>{selectedItem.id}</Text>
+                    <Text style={styles.smallText}>Start Time</Text>
+                    <Text style={styles.category}>{selectedItem.starttime}</Text>
                 </View>
 
                 <View style={commonStyles.whiteCard}>
-                    <Text style={styles.smallText}>Price</Text>
+                    <Text style={styles.smallText}>End Time</Text>
                     <Text style={styles.priceText}>
-                        ${selectedItem.price.toFixed(2)}
+                        ${selectedItem.endtime}
                     </Text>
                 </View>
 
                 <View style={commonStyles.whiteCard}>
-                    <Text style={styles.labelText}>Description</Text>
+                    <Text style={styles.labelText}>Status</Text>
                     <Text style={styles.bodyText}>
-                        {selectedItem.description}
+                        {selectedItem.status}
                     </Text>
                 </View>
 
